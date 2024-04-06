@@ -8,7 +8,7 @@ function generateMiniMap() {
   const cellSize = Math.floor(mapWidth / 30); // Calculate cell size based on map width
   const mapHeight = mapWidth; // Ensure the map is square
 
-  mapDiv.style.height = mapHeight + 'px'; // Set map height to maintain square aspect ratio
+//mapDiv.style.height = mapHeight + 'px'; // Set map height to maintain square aspect ratio
 
   const miniMap = document.createElement('div');
   miniMap.className = 'mini-map';
