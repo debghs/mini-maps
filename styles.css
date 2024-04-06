@@ -72,8 +72,9 @@ body {
     background-color: #2e7d32; /* dark green */
   }
   
-  @media screen and (max-width: 500px) {
+  @media screen and (max-width: 480px) {
     #map {
-        max-width: 300px;
+        width: 90%;
     }
   }
+vv
