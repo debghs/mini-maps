@@ -1,14 +1,23 @@
+document.addEventListener('DOMContentLoaded', function() {
+  const mapDiv = document.getElementById('map');
+  setMapSize(mapDiv);
+});
+
 document.getElementById('generateButton').addEventListener('click', generateMiniMap);
+
+function setMapSize(mapDiv) {
+  const mapWidth = mapDiv.offsetWidth;
+  const cellSize = Math.floor(mapWidth / 30); // Use Math.floor() to ensure all cells fit
+  const mapHeight = cellSize * 30; // Ensure the map is square
+
+  mapDiv.style.height = mapHeight + 'px'; // Set map height to maintain square aspect ratio
+}
 
 function generateMiniMap() {
   const mapDiv = document.getElementById('map');
   mapDiv.innerHTML = '';
 
-  const mapWidth = mapDiv.offsetWidth;
-  const cellSize = Math.ceil(mapWidth / 30); // Use Math.ceil() to ensure all cells fit
-  const mapHeight = cellSize * 30; // Ensure the map is square
-
-  mapDiv.style.height = mapHeight + 'px'; // Set map height to maintain square aspect ratio
+  setMapSize(mapDiv); // Ensure map size remains fixed
 
   const miniMap = document.createElement('div');
   miniMap.className = 'mini-map';
@@ -22,8 +31,6 @@ function generateMiniMap() {
     for (let j = 0; j < 30; j++) {
       const cell = document.createElement('div');
       cell.className = 'cell ' + getRandomTerrain();
-      cell.style.width = cellSize + 'px'; // Set cell width
-      cell.style.height = cellSize + 'px'; // Set cell height
       row.appendChild(cell);
     }
     miniMap.appendChild(row);
