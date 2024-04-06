@@ -5,8 +5,8 @@ function generateMiniMap() {
   mapDiv.innerHTML = '';
 
   const mapWidth = mapDiv.offsetWidth;
-  const cellSize = Math.floor(mapWidth / 30); // Calculate cell size based on map width
-  const mapHeight = mapWidth; // Ensure the map is square
+  const cellSize = Math.ceil(mapWidth / 30); // Use Math.ceil() to ensure all cells fit
+  const mapHeight = cellSize * 30; // Ensure the map is square
 
   mapDiv.style.height = mapHeight + 'px'; // Set map height to maintain square aspect ratio
 
@@ -32,11 +32,5 @@ function generateMiniMap() {
 
 function getRandomTerrain() {
   const terrainTypes = ['grass', 'grass', 'grass', 'grass', 'water', 'water', 'mountain', 'forest', 'forest', 'forest'];
-  return terrainTypes[Math.floor(Math.random() * terrainTypes.length)];
-}
-
-
-function getRandomTerrain() {
-  const terrainTypes = ['grass', 'grass', 'grass', 'grass', 'water', 'water', 'mountain', 'forest', 'forest','forest'];
   return terrainTypes[Math.floor(Math.random() * terrainTypes.length)];
 }
